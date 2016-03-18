@@ -14,6 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         // Commands\Inspire::class,
+		Commands\ExchangeRateCbrRuCommand::class,
+		Commands\ExchangeRateYahhoFinanceCommand::class,
     ];
 
     /**
@@ -26,5 +28,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+		$schedule->command('exchangeRate:cbrRu')
+			->hourly();
+		
+		$schedule->command('exchangeRate:yahhoFinance')
+			->hourly();
     }
 }
